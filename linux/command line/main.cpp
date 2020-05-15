@@ -51,7 +51,7 @@ int main(int narg, char *arg[])
 {
     if(arg > 1)                                                     //Process arguments if provided
     {
-        handle_args();
+        handle_args(narg, arg);
         return 0;
     }
     cout << "---------------Revamp---------------\n\n";
