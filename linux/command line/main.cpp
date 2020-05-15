@@ -1,10 +1,9 @@
-#include <iostream>
 #include <sys/utsname.h>
 #include <unistd.h>
 #include <string.h>
 #include "arguments.h"
 #include "colors.h"
-#include "commands.h"
+// #include "commands.h"
 #define maxLimit 2000
 
 using namespace std;
@@ -13,7 +12,7 @@ string getOsn()
 {
     FILE *ptr = fopen("/etc/os-release", "r");
     char str[maxLimit], ch;
-    string osn;
+    string osn = "revamp";
     while(fscanf(ptr, "%[^\n]s", str) != -1){
         if(str[0] == 'I' && str[1] == 'D')
         {
@@ -22,6 +21,7 @@ string getOsn()
         }
         fscanf(ptr, "%c", &ch);
     }
+    return osn;
 }
 
 void printText(string str, string colorName)                    //fancy display
@@ -32,9 +32,10 @@ void printText(string str, string colorName)                    //fancy display
     cout << print;
 }
 
-void disp()
+void disp(char *user)
 {
-    char user[maxLimit], cwd[maxLimit], osn = getOsn();
+    char cwd[maxLimit];
+    string osn = getOsn();
     getlogin_r(user, maxLimit);
     getcwd(cwd, maxLimit);
     printText("\u250C\u2500[", "red");
@@ -49,18 +50,23 @@ void disp()
 
 int main(int narg, char *arg[])
 {
-    if(arg > 1)                                                     //Process arguments if provided
+    if(narg > 1)                                                     //Process arguments if provided
     {
         handle_args(narg, arg);
         return 0;
     }
     cout << "---------------Revamp---------------\n\n";
-    char user[maxLimit], cwd[maxLimit], command[maxLimit], buff, ;
+    char command[maxLimit], buff, user[maxLimit];
     while (true)
     {
-        disp();
+        disp(user);
         scanf("%[^\n]s", command);
         scanf("%c", &buff);
+        if(strcmp(command, "exit") == 0)
+        {
+            cout << "Bye, Have a good day " << user << ".\n";
+            return 0;
+        }
         system(command);
     }
     return 0;
