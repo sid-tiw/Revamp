@@ -1,3 +1,7 @@
+#ifndef _ARGUMENTS_H_
+#define _ARGUMENTS_H_
+
+#include "operations.h"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -76,4 +80,7 @@ void handle_args(int narg, char *arg[])
             }
         }
     }
+    copyEntity(p_ar);
 }
+
+#endif

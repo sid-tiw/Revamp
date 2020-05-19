@@ -1,3 +1,6 @@
+#ifndef _COLORS_H_
+#define _COLORS_H_
+
 // Colors used in the command line.
 #include <string>
 #define string std::string
@@ -16,3 +19,5 @@ int get_color(string name)
             return ind[i];
     return 7; //default white.
 }
+
+#endif
