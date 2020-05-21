@@ -12,7 +12,6 @@ jobs:
     runs-on: self-hosted
 
     steps:
-    - uses: actions/checkout@v2
     - name: autor
       run: autoreconf --install
       working-directory: ./linux/command line
