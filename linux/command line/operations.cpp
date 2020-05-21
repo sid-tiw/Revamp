@@ -1,9 +1,9 @@
 #include <string>
 #include <sys/stat.h>
-#include <experimental/filesystem>
+#include <filesystem>
 #include "operations.h"
 
-namespace flst = std::experimental::filesystem;
+namespace flst = std::filesystem;
 
 bool is_directory(std::string name)
 {
