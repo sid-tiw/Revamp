@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: prereq
-      run: find /usr -name cstdint
+      run: /usr/include/c++/9
     - name: autor
       run: autoreconf --install
       working-directory: ./linux/command line
