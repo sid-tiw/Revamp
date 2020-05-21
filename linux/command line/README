@@ -1,0 +1,14 @@
+Usage: revamp [OPTIONS]... [arg1]... [arg2]
+A utility to move file or folders from arg1 to arg2 without requiring to change the links and references.
+
+-nd                          do not delete the destination file/folder
+-f,                          do not prompt before overwriting
+-i,                          prompt before overwrite (default)
+-no,                         do not overwrite an existing file
+If more than one of -i, -f, -no is specified, only the final option is accepted.
+-t,                          move file/folder at arg1 into arg2(arg2 must be a directory).
+
+
+-h                            display this help.
+-version                      output version information
+If no options are provided, the revamp command line is opened.
