@@ -1,9 +1,10 @@
+#include "operations.h"
+#include "arguments.h"
+#include "colors.h"
 #include <sys/utsname.h>
 #include <unistd.h>
 #include <string.h>
-#include "arguments.h"
-#include "colors.h"
-// #include "commands.h"
+
 #define maxLimit 2000
 
 using namespace std;
@@ -67,7 +68,7 @@ int main(int narg, char *arg[])
             cout << "Bye, Have a good day " << user << ".\n";
             return 0;
         }
-        system(command);
+        std::system(command);
     }
     return 0;
 }
