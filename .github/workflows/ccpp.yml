@@ -13,6 +13,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: autor
+      run: autoreconf --install
+      working-directory: ./linux/command line
+    - name: configure
+      run: ./configure
+      working-directory: ./linux/command line
     - name: make
       run: make
+      working-directory: ./linux/command line
+    - name: package
+      run: make distcheck
       working-directory: ./linux/command line
